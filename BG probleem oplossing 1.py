@@ -28,11 +28,11 @@ def info(station):
     infoWindow.option_add('*Label.Font',('Frutiger Bold Regular',12,'bold'))
 
     titelFrame = Frame(master=infoWindow,width=1280, height=100, pady=10,bg='#fed339')
-    titel = Label(master=titelFrame, text='De actuele vertrektijden van station '+station+' is', font=('Frutiger Bold Regular',26,'bold'), bg='#fed339', fg='#000066')
+    titel = Label(master=titelFrame, text='De actuele vertrektijden van station '+station+' zijn:', font=('Frutiger Bold Regular',26,'bold'), bg='#fed339', fg='#000066')
     titel.grid(row=0, columnspan=7)
     titelFrame.grid(row=0)
 
-    infoFrame = Frame(master=infoWindow, width=1000, height=500, pady=10,bg='white')
+    infoFrame = Frame(master=infoWindow, width=1000, height=500, pady=10,bg='white', bd=5)
     Label(master=infoFrame, text='EindBestemming').grid(row=1, column=0, ipadx=10, ipady=10, )
     Label(master=infoFrame, text='Vertrekspoor').grid(row=1, column=1, ipadx=10, ipady=10, )
     Label(master=infoFrame, text='Vertrektijd').grid(row=1, column=2, ipadx=10, ipady=10, )
@@ -117,13 +117,27 @@ def choice():
     okButton = Button(master=choiceWindow, text='OK', command=controleer, bg='#000066',fg='white', font=('Frutiger Bold Regular',40,'bold'))
     okButton.pack(pady=10)
 
+def StartScreen(): #Initieert het startscherm
+    global root
+    root = Tk()
+    root['bg']='#fed339'
 
-root = Tk()
-root['bg']='#fed339'
+    titelFrame = Frame(master=root,width=1280, height=100, pady=10,bg='#fed339')
+    titel = Label(master=titelFrame, text='Welkom bij de NS', font=('Frutiger Bold Regular',40,'bold'), bg='#fed339', fg='#000066')
+    titel.pack(ipadx= 0, ipady = 0) #Print de welkomsboodschap in de GUI
+    titelFrame.grid(row=0)
 
-gadoor = Button(master=root, text='ga door', command=choice, bg='#000066',fg='white', font=('Frutiger Bold Regular',40,'bold'))
-gadoor.grid(pady=10)
-gaterug = Button(master=root, text='ga terug', command=stoppen, bg='#000066',fg='white', font=('Frutiger Bold Regular',40,'bold'))
-gaterug.grid(pady=10)
+    windowFrame = Frame(master=root,width=1280, height=100, pady=10,bg='#fed339')
+    whiteWindow = Label(master=windowFrame, text='Klik op ga door om actuele reisinformatie op te vragen, klik op stop om het programma af te sluiten', font=('Frutiger Bold Regular',8,'bold'), bg='white', fg='#000066')
+    whiteWindow.pack(ipadx= 5, ipady = 5) #Print de informatie over opties in de GUI
+    windowFrame.grid(row=1, padx=100)
 
-root.mainloop()
+    buttonFrame = Frame(master=root, width=1280, height=100, pady=10,bg='#fed339')
+    gaterug = Button(master=buttonFrame, text='ga terug', command=stoppen, bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold'))
+    gaterug.grid(pady=10, padx=10,column=3,  row=0)
+    gadoor = Button(master=buttonFrame, text='ga door', command=choice, bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold'))
+    gadoor.grid(pady=10, padx=10,  column=4, row=0)
+    buttonFrame.grid(row=2)
+    root.mainloop()
+
+StartScreen()
