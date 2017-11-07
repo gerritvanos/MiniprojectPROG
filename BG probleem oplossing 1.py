@@ -85,7 +85,7 @@ def info(station):
     infoFrame.grid(row=1,padx=100)
 
     buttonFrame = Frame(master=infoWindow, width=1280, height=100, pady=10,bg='#fed339')
-    gaterug = Button(master=buttonFrame, text='ga terug', command=stoppen, bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold'))
+    gaterug = Button(master=buttonFrame, text='ga terug', command=StartScreen, bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold'))
     gaterug.grid(pady=10, padx=10,column=3,  row=rij)
     gadoor = Button(master=buttonFrame, text='ga door', command=choice, bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold'))
     gadoor.grid(pady=10, padx=10,  column=4, row=rij)
@@ -118,6 +118,10 @@ def choice():
     okButton.pack(pady=10)
 
 def StartScreen(): #Initieert het startscherm
+    try:
+        infoWindow.destroy()
+    except:
+        None
     global root
     root = Tk()
     root['bg']='#fed339'
