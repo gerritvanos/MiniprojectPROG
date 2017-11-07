@@ -1,6 +1,8 @@
 import requests
 import xmltodict
+import sys
 from tkinter import *
+
 stations = ['Hilversum','Kampen', 'Culemborg', 'Utrecht Lunetten']
 def gegevens_opvragen(stationsNaam):
     auth_details = ('gerrit.vanos@student.hu.nl', 'BE66_yqU3kQWgKSQJdWPxEHZ8JFji7pM74B9fTCwQo1yZW3clRSQ4w')
@@ -13,74 +15,95 @@ def gegevens_opvragen(stationsNaam):
     return vertrekDict
 
 def info(station):
-
+    choiceWindow.destroy()
     gegevens = gegevens_opvragen(station)
     rij = 2
-    info = Tk()
-    info["bg"]='yellow'
-    info.option_add('*Label.Background', 'yellow')
-    info.option_add('*Label.Ipady',10)
-    titel = Label(master=info, text='De actuele vertrektijden van station '+station+' is', font=('Helvetica', 16, 'bold italic'))
-    titel.place(anchor=CENTER,relx=0.5, rely=0.5,)
+    global infoWindow
+    infoWindow = Tk()
+    infoWindow["bg"]='#fed339'
+    infoWindow.option_add('*Label.Background', '#fed339')
+    infoWindow.option_add('*Label.Ipady',10)
+    infoWindow.option_add('*Label.Font',('Frutiger Bold Regular',12,'bold'))
+    titel = Label(master=infoWindow, text='De actuele vertrektijden van station '+station+' is', font=('Frutiger Bold Regular',16,'bold'), bg='#000066', fg='white')
+    titel.grid(row=0, columnspan=7)
 
-    Label(master=info, text='RitNummer').grid(row=1,column=0,ipadx=10,ipady=10,)
-    Label(master=info, text='VertrekTijd').grid(row=1, column=1, ipadx=10, ipady=10,)
-    Label(master=info, text='EindBestemming').grid(row=1, column=2, ipadx=10, ipady=10,)
-    Label(master=info, text='TreinSoort').grid(row=1, column=3, ipadx=10, ipady=10,)
-    Label(master=info, text='Vervoerder').grid(row=1, column=4, ipadx=10, ipady=10,)
-    Label(master=info, text='VertrekSpoor').grid(row=1, column=5, ipadx=10, ipady=10,)
-    Label(master=info, text='Opmerkingen').grid(row=1, column=6, ipadx=10, ipady=10,)
-    Label(master=info, text='RouteTips').grid(row=1, column=7, ipadx=10, ipady=10,)
-    Label(master=info, text='RouteTekst').grid(row=1, column=8, ipadx=10, ipady=10,)
+    Label(master=infoWindow, text='EindBestemming').grid(row=1, column=0, ipadx=10, ipady=10, )
+    Label(master=infoWindow, text='Vertrekspoor').grid(row=1, column=1, ipadx=10, ipady=10, )
+    Label(master=infoWindow, text='Vertrektijd').grid(row=1, column=2, ipadx=10, ipady=10, )
+    Label(master=infoWindow, text='Treinsoort').grid(row=1, column=3, ipadx=10, ipady=10, )
+    Label(master=infoWindow, text='Vervoerder').grid(row=1, column=4, ipadx=10, ipady=10, )
+    Label(master=infoWindow, text='Routetekst').grid(row=1, column=5, ipadx=10, ipady=10, )
+    Label(master=infoWindow, text='Routetips').grid(row=1, column=6, ipadx=10, ipady=10, )
+    Label(master=infoWindow, text='Opmerkingen').grid(row=1, column=7, ipadx=10, ipady=10, )
 
+    count =0
     for trein in gegevens:
-        kolom =0
+        kolom = 0
+        if count == 5:
+            break
         for key in trein:
-            if key == 'RitNummer':
-                kolom =0
-            elif key =='VertrekTijd':
-                kolom = 1
-            elif key == 'EindBestemming':
-                kolom =2
-            elif key == 'TreinSoort':
-                kolom =3
-            elif key == 'Vervoerder':
-                kolom =4
+            if key == 'EindBestemming':
+                kolom = 0
             elif key == 'VertrekSpoor':
-                kolom = 5
-            elif key == 'Opmerkingen':
-                kolom =6
-            elif key == 'ReisTip':
-                kolom =7
+                kolom = 1
+            elif key == 'VertrekTijd':
+                kolom = 2
+            elif key == 'TreinSoort':
+                kolom = 3
+            elif key == 'Vervoerder':
+                kolom = 4
             elif key == 'RouteTekst':
-                kolom=8
+                kolom = 5
+            elif key == 'ReisTip':
+                kolom = 6
+            elif key == 'Opmerkingen':
+                kolom = 7
             elif key == 'VertrekVertraging' or key == 'VertrekVertragingTekst':
                 continue
-            if kolom ==5:
-                Label(master=info, text='{}'.format(trein[key]['#text'])).grid(row=rij, column=kolom, ipadx=10, ipady=10)
+            if kolom == 1:
+                Label(master=infoWindow, text='{}'.format(trein[key]['#text'])).grid(row=rij, column=kolom, ipadx=10, ipady=10)
             else:
-                Label(master=info, text='{}'.format(trein[key])).grid(row=rij,column=kolom,ipadx=10,ipady=10)
-        rij +=1
-    info.mainloop()
+                Label(master=infoWindow, text='{}'.format(trein[key])).grid(row=rij, column=kolom, ipadx=10, ipady=10)
+        rij += 1
+        count +=1
+
+    gadoor = Button(master=infoWindow, text='ga door', command=keuze, bg='#000066', fg='white', font=('Frutiger Bold Regular', 40, 'bold'))
+    gadoor.grid(pady=10)
+    gaterug = Button(master=infoWindow, text='ga terug', command=stoppen, bg='#000066', fg='white', font=('Frutiger Bold Regular', 40, 'bold'))
+    gaterug.grid(pady=10)
+    infoWindow.mainloop()
 
 
 def controleer():
     info(variable.get())
 
+def stoppen():
+    sys.exit()
+
+def keuze():
+    try:
+        root.destroy()
+    except:
+        infoWindow.destroy()
+    global choiceWindow
+    choiceWindow= Tk()
+    choiceWindow["bg"]='#fed339'
+    global variable
+    variable = StringVar(choiceWindow)
+    variable.set(stations[0])  # default value
+    dropdown = OptionMenu(choiceWindow, variable, *stations)
+    dropdown.config(bg='#000066', fg='white', font=('Frutiger Bold Regular', 40, 'bold'))
+    dropdown.pack()
+    okButton = Button(master=choiceWindow, text='OK', command=controleer, bg='#000066',fg='white', font=('Frutiger Bold Regular',40,'bold'))
+    okButton.pack(pady=10)
 
 
 root = Tk()
+root['bg']='#fed339'
 
-gadoor = Button(master=root, text='ga door', command=controleer)
-gadoor.pack(pady=10)
-
-
-variable = StringVar(root)
-variable.set(stations[0]) # default value
-dropdown = OptionMenu(root, variable, *stations)
-dropdown.pack()
-
-
-
+gadoor = Button(master=root, text='ga door', command=keuze, bg='#000066',fg='white', font=('Frutiger Bold Regular',40,'bold'))
+gadoor.grid(pady=10)
+gaterug = Button(master=root, text='ga terug', command=stoppen, bg='#000066',fg='white', font=('Frutiger Bold Regular',40,'bold'))
+gaterug.grid(pady=10)
 
 root.mainloop()

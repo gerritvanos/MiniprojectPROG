@@ -1,7 +1,7 @@
 import requests
 import xmltodict
 from tkinter import *
-stations = ['Hilversum','Kampen', 'Culemborg']
+stations = ['Hilversum','Kampen', 'Culemborg', 'Utrecht Lunetten']
 def gegevens_opvragen(stationsNaam):
     auth_details = ('gerrit.vanos@student.hu.nl', 'BE66_yqU3kQWgKSQJdWPxEHZ8JFji7pM74B9fTCwQo1yZW3clRSQ4w')
     api_url = 'http://webservices.ns.nl/ns-api-avt?station='+stationsNaam
@@ -13,10 +13,12 @@ def gegevens_opvragen(stationsNaam):
     return vertrekDict
 
 def info(station):
+
     gegevens = gegevens_opvragen(station)
     rij = 2
     kolom = 0
     info = Tk()
+    info["bg"]='yellow'
     titel = Label(master=info, text='De actuele vertrektijden van station '+station+' is', font=('Helvetica', 16, 'bold italic'))
     titel.place(anchor=CENTER,relx=0.5, rely=0.5,)
 
@@ -29,6 +31,7 @@ def info(station):
     Label(master=info, text='Opmerkingen').grid(row=1, column=6, ipadx=10, ipady=10,)
     Label(master=info, text='RouteTips').grid(row=1, column=7, ipadx=10, ipady=10,)
     Label(master=info, text='RouteTekst').grid(row=1, column=8, ipadx=10, ipady=10,)
+
     for trein in gegevens:
         kolom =0
         for key in trein:
