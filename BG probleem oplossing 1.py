@@ -78,6 +78,9 @@ def info(station):
             elif kolom == 3:
                 vertraging = '+'+str(trein[key])[2:]
                 Label(master=infoFrame, text='{}'.format(vertraging)).grid(row=rij, column=kolom, ipadx=10, ipady=10)
+            elif kolom == 8:
+                opmerking = str(trein[key])[28:-4]
+                Label(master=infoFrame, text='{}'.format(opmerking)).grid(row=rij, column=kolom, ipadx=10, ipady=10)
             else:
                 Label(master=infoFrame, text='{}'.format(trein[key])).grid(row=rij, column=kolom, ipadx=10, ipady=10)
         rij += 1
