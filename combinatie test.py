@@ -64,7 +64,7 @@ def info(station):
 
 
 def controleer():
-    info(variable.get())
+    info(UserChoice.get())
 
 
 
@@ -74,9 +74,9 @@ gadoor = Button(master=root, text='ga door', command=controleer)
 gadoor.pack(pady=10)
 
 
-variable = StringVar(root)
-variable.set(stations[0]) # default value
-dropdown = OptionMenu(root, variable, *stations)
+UserChoice = StringVar(root)
+UserChoice.set(stations[0]) # default value
+dropdown = OptionMenu(root, UserChoice, *stations)
 dropdown.pack()
 
 
