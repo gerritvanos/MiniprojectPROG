@@ -107,7 +107,7 @@ def Information(station):
     gadoor.grid(pady=10, padx=10,  column=4, row=rij)
     buttonFrame.grid(row=2) #Deze zorgt ervoor dat de buttons in de 2 rij komen te staan
 
-    MainFrame.place(relx=0.1)
+    MainFrame.place(relx=0.5, rely=0.3, anchor=CENTER)
     infoWindow.mainloop() #Het zorgt ervoor dat het window getoond wordt
 
 
@@ -127,14 +127,24 @@ def choice():
     choiceWindow= Tk()
     choiceWindow["bg"]='#fed339'
     choiceWindow.geometry('1366x768')
+
+    MainFrame=Frame(master=choiceWindow,bg='#fed339')
+
+    DropdownFrame=Frame(master=MainFrame,bg='#fed339')
     global UserChoice
-    UserChoice = StringVar(choiceWindow)
+    UserChoice = StringVar(DropdownFrame)
     UserChoice.set(stations[0])  # default value
-    dropdown = OptionMenu(choiceWindow, UserChoice, *stations)
+    dropdown = OptionMenu(DropdownFrame, UserChoice, *stations)
     dropdown.config(bg='#000066', fg='white', font=('Frutiger Bold Regular', 40, 'bold'))
     dropdown.pack()
-    okButton = Button(master=choiceWindow, text='OK', command=CheckOption, bg='#000066', fg='white', font=('Frutiger Bold Regular', 40, 'bold'))
-    okButton.pack(pady=10)
+    DropdownFrame.pack()
+
+    ButtonFrame = Frame(master=MainFrame,bg='#fed339')
+    gadoor = Button(master=ButtonFrame, text='ga door', command=CheckOption, bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold'))       #Dit geeft de opmaak van de button aan
+    gadoor.pack()
+    ButtonFrame.pack()
+
+    MainFrame.place(relx=0.5,rely=0.3,anchor=CENTER)
 
 def StartScreen(): #Initieert het startscherm
     try:
@@ -155,7 +165,7 @@ def StartScreen(): #Initieert het startscherm
 
     windowFrame = Frame(master=MainFrame, height=100, pady=10,bg='#fed339')
     whiteWindow = Label(master=windowFrame, text='Klik op ga door om actuele reisinformatie op te vragen, klik op stop om het programma af te sluiten', font=('Frutiger Bold Regular',8,'bold'), bg='white', fg='#000066')
-    whiteWindow.pack(ipadx= 5, ipady = 5) #Print de informatie over opties in de GUI
+    whiteWindow.pack(ipadx= 25, ipady = 100) #Print de informatie over opties in de GUI
     windowFrame.grid(row=1, padx=25)
 
     buttonFrame = Frame(master=MainFrame, width=1280, height=100, pady=10,bg='#fed339')
@@ -165,7 +175,7 @@ def StartScreen(): #Initieert het startscherm
     gadoor.grid(pady=10, padx=10,  column=4, row=0)
     buttonFrame.grid(row=2)
 
-    MainFrame.place(relx=0.3,rely=0)
+    MainFrame.place(relx=0.5,rely=0.25, anchor=CENTER)
     root.mainloop()
 
 StartScreen()
