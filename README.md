@@ -6,7 +6,7 @@ https://www.python.org/downloads/
 
 Wanneer u dubbelklikt op het script (bestandsnaam) word het script geopend.
 
-Overigens, wanneer er een IDE ge�nstalleerd (bijvoorbeeld Pycharm) word het script via Pycharm geopend. Dit is mogelijk maar niet gewenst. Om dit te voorkomen volgt u de volgende stappen:
+Overigens, wanneer er een IDE geïnstalleerd (bijvoorbeeld Pycharm) word het script via Pycharm geopend. Dit is mogelijk maar niet gewenst. Om dit te voorkomen volgt u de volgende stappen:
 
 1. Klik met rechtermuisknop op het script.
 2. Navigeer met uw muiscursor naar Openen met >
