@@ -4,7 +4,6 @@ import pip
 pip.main(['install','requests'])    #Instaleerd de module 'requests'
 pip.main(['install','xmltodict'])   #Instaleerd de module 'xmltodict'
 
-
 #Onderstaande modules zijn nodig voor verschillende onderdelen van de code
 import requests         #Deze module wordt gebruikt voor het opvragen van de API
 import xmltodict        #Deze module wordt gebtuikt voor het omzetten van de gegevens naar een dict

@@ -19,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NS_Reistijden_Info_Applicatie.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NS_Reistijden_Info_Applicatie.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NS_Reistijden_Info_Applicatie.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="-1292">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -32,8 +32,18 @@
       <file leaf-file-name="READ ME.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/READ ME.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="42" lean-forward="true" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+            <state relative-caret-position="119">
+              <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -56,8 +66,8 @@
         <option value="$PROJECT_DIR$/BG probleem oplossing 1.py" />
         <option value="$PROJECT_DIR$/NS Reistijden API Verwerking.py" />
         <option value="$PROJECT_DIR$/NS Reistijden Info Applicatie.py" />
-        <option value="$PROJECT_DIR$/READ ME.txt" />
         <option value="$PROJECT_DIR$/NS_Reistijden_Info_Applicatie.py" />
+        <option value="$PROJECT_DIR$/READ ME.txt" />
       </list>
     </option>
   </component>
@@ -240,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510152858811</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Readme toegevoegd">
+      <created>1510162659027</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1510162659027</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -344,18 +361,26 @@
     <entry file="file://$PROJECT_DIR$/BG probleem oplossing 1.py" />
     <entry file="file://$PROJECT_DIR$/NS Reistijden API Verwerking.py" />
     <entry file="file://$PROJECT_DIR$/NS Reistijden Info Applicatie.py" />
-    <entry file="file://$PROJECT_DIR$/READ ME.txt">
+    <entry file="file://$PROJECT_DIR$/NS_Reistijden_Info_Applicatie.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="42" lean-forward="true" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+        <state relative-caret-position="-1292">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NS_Reistijden_Info_Applicatie.py">
+    <entry file="file://$PROJECT_DIR$/READ ME.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
