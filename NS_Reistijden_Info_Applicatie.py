@@ -126,7 +126,7 @@ def Information(station):
     Label(master=InfoFrame, text='Vertraging').grid(row=1, column=3, ipadx=5, ipady=10, )
     Label(master=InfoFrame, text='Treinsoort').grid(row=1, column=4, ipadx=5, ipady=10, )
     Label(master=InfoFrame, text='Vervoerder').grid(row=1, column=5, ipadx=5, ipady=10, )
-    Label(master=InfoFrame, text='Routetekst').grid(row=1, column=6, ipadx=5, ipady=10, )
+    Label(master=InfoFrame, text='Tussenstations').grid(row=1, column=6, ipadx=5, ipady=10, )
     Label(master=InfoFrame, text='Routetips').grid(row=1, column=7, ipadx=5, ipady=10, )
     Label(master=InfoFrame, text='Opmerkingen').grid(row=1, column=8, ipadx=5, ipady=10, )
 
