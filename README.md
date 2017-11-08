@@ -4,7 +4,7 @@ READ ME Miniproject Programmeren 2017 Projectgroep 3 V1N
 Om de Reisinformatie Applicatie te kunnen gebruiken is Python 3.6.2 (of recenter) nodig. Dit kunt u downloaden op de volgende pagina:
 https://www.python.org/downloads/
 
-Wanneer u dubbelklikt op het script (bestandsnaam) word het script geopend.
+Wanneer u dubbelklikt op het script (NS_Reistijden_Info_Applicatie) word het script geopend.
 
 Overigens, wanneer er een IDE geïnstalleerd (bijvoorbeeld Pycharm) word het script via Pycharm geopend. Dit is mogelijk maar niet gewenst. Om dit te voorkomen volgt u de volgende stappen:
 
