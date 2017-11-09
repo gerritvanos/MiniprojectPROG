@@ -10,7 +10,8 @@ import xmltodict        #Deze module wordt gebtuikt voor het omzetten van de geg
 import sys              #Deze module wordt gebruikt om het programma af te kunnen sluiten
 from tkinter import *   #Deze module wordt gebruikt voor de GUI
 
-stations = ['Hilversum','Kampen', 'Culemborg', 'Utrecht Lunetten', 'Driebergen-Zeist', 'Utrecht Centraal'] #Deze lijst is de lijst met stations die opgevraagd kunnen worden
+Stations = ['Hilversum', 'Kampen', 'Culemborg', 'Utrecht Lunetten', 'Driebergen-Zeist', 'Utrecht Centraal'] #Deze lijst is de lijst met stations die opgevraagd kunnen worden
+Stations.sort()
 
 def StartScreen(): #Initieert het startscherm
     try:
@@ -47,45 +48,46 @@ def StartScreen(): #Initieert het startscherm
     Root.mainloop()
 
 def Choice():#Initieert het keuze scherm
-    try:                #Probeert het Root window te sluiten als deze niet open is omdat er via het info window verwezen is naar Choice zal dat window gesloten worden
-        Root.destroy()  #Sluit het Root window
+    try:                                                #Probeert het Root window te sluiten als deze niet open is omdat er via het info window verwezen is naar Choice zal dat window gesloten worden
+        Root.destroy()                                  #Sluit het Root window
     except:
-        InfoWindow.destroy()    #Sluit het InfoWindow
+        InfoWindow.destroy()                            #Sluit het InfoWindow
 
-    global ChoiceWindow             #Zorgt ervoor dat de root variabele voor het hele programma geld
-    ChoiceWindow= Tk()              #Koppelt variabele ChoiceWindow aan Tkinter
-    ChoiceWindow["bg"]= '#fed339'   #Maakt de achtergrond van het ChoiceWindow Geel
-    ChoiceWindow.geometry('1366x768')   #Stelt de standaard grootte van het window in
+    global ChoiceWindow                                 #Zorgt ervoor dat de root variabele voor het hele programma geld
+    ChoiceWindow= Tk()                                  #Koppelt variabele ChoiceWindow aan Tkinter
+    ChoiceWindow["bg"]= '#fed339'                       #Maakt de achtergrond van het ChoiceWindow Geel
+    ChoiceWindow.geometry('1366x768')                   #Stelt de standaard grootte van het window in
     ChoiceWindow.title('NS Reistijden Info Applicatie')#Zorgt ervoor dat de naam van de applicatie als deze wordt gestart NS Reistijden Info Applicatie is
 
-    MainFrame=Frame(master=ChoiceWindow, bg='#fed339') #Voegt het ChoiceWindow toe aan het algemene frame
+    MainFrame=Frame(master=ChoiceWindow, bg='#fed339')                                  #Voegt het ChoiceWindow toe aan het algemene frame
+
     TitleFrame = Frame(master=MainFrame, width=1280, height=100, pady=10,bg='#fed339')  # Het frame waar de titel in staat zodat deze goed gecentreerd/uitgelijnd kan worden op de pagina
     Title = Label(master=TitleFrame, text='Selecteer Het station',font=('Frutiger Bold Regular', 26, 'bold'), bg='#fed339', fg='#000066')  # Opmaak van de titel
-    Title.pack()  # Sluit de titel af en zet deze op de pagina
-    TitleFrame.grid(row=0)  # Zet het Frame van de titel op regel 0 van de pagina
+    Title.pack()                        # Sluit de titel af en zet deze op de pagina
+    TitleFrame.grid(row=0)              # Zet het Frame van de titel op regel 0 van de pagina
 
     ExplanationFrame = Frame(master=MainFrame)
-    ExplanationText = 'Selecteer uit onderstaande lijst een station waarvan u informatie op wilt vragen, klik daarna op ga door'
+    ExplanationText = 'Selecteer uit onderstaande lijst een station waarvan u informatie op wilt vragen, klik daarna op ga door' #De tekst die geprint wordt in het witteveld
     WhiteWindow = Label(master=ExplanationFrame, text=ExplanationText, font=('Frutiger Bold Regular', 10, 'bold'),bg='white')  # Print de tekst in het witte veld in de GUI
     WhiteWindow.pack(ipadx=25, ipady=100)  # Zorgt ervoor dat de tekst in het witte veld op de juiste plek staat op x en y-as
     ExplanationFrame.grid(row=1 ,pady=25)
 
-    DropdownFrame=Frame(master=MainFrame,bg='#fed339')
+    DropdownFrame=Frame(master=MainFrame,bg='#fed339')    #Frame voor het dropdownmenu
     global UserChoice
-    UserChoice = StringVar(DropdownFrame)
-    UserChoice.set(stations[0])  # default value
-    Dropdown = OptionMenu(DropdownFrame, UserChoice, *stations)
-    Dropdown.config(bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold'))
-    Dropdown['menu'].config(bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold'))
+    UserChoice = StringVar(DropdownFrame)                                                           #Maakt de varibele aan waar in opgelagen wordt wat de gebruiker kiest
+    UserChoice.set(Stations[0])                                                                     #Zet de standaard waarde van het dropdownmenu op het eerste station in de lijst
+    Dropdown = OptionMenu(DropdownFrame, UserChoice, *Stations)                                     #Maakt het dropdownmenu aan met als keuzes de lijst stations
+    Dropdown.config(bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold'))           #Opmaak van het dropdownmenu
+    Dropdown['menu'].config(bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold'))   #opmaak van de opties van het dropdownmenu
     Dropdown.pack()
-    DropdownFrame.grid(row=2, pady=10)
+    DropdownFrame.grid(row=2, pady=10)                      #Sluit het frame van het dropdownmenu
 
-    ButtonFrame = Frame(master=MainFrame,bg='#fed339')
+    ButtonFrame = Frame(master=MainFrame,bg='#fed339')      #Frame voor de knoppen
     Continue = Button(master=ButtonFrame, text='Ga door', command=CheckOption, bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold')) #Dit geeft de opmaak van de button aan
     Continue.pack()
-    ButtonFrame.grid(row=3, pady=15)
+    ButtonFrame.grid(row=3, pady=15)                        #Sluit het frame voor de knoppen
 
-    MainFrame.place(relx=0.5,rely=0.3,anchor=CENTER)
+    MainFrame.place(relx=0.5,rely=0.3,anchor=CENTER)        #Sluit het Algemene Frame en zet deze op de goede plek
 
 
 def InformationRequest(stationsNaam):
@@ -133,7 +135,7 @@ def Information(station):
     Row = 2     #Zorgt dat er na elke trein een nieuwe rij gebruikt wordt
     for Train in Information: #Deze for-loop wordt gebruikt om de informatie uit alle vertrekkende treinen te halen
         Column = 0
-        if Count == 10:
+        if Count == 10:         #Wanneer er van 10 treinen de informatie geprint is is de counter 10 en stopt de for-loop
             break
         for Key in Train:
             #Voor alle onderstaande if/elif statments zorgen ervoor dat de informatie in de goede rijen komt te staan
@@ -193,7 +195,7 @@ def Information(station):
 def CheckOption():#Haalt de informatie uit het menu en geeft deze aan de Information
     Information(UserChoice.get())
 
-def stoppen(): #Stopt het systeem
+def stoppen(): #Stopt de applicatie
     sys.exit()
 
-StartScreen()
+StartScreen()  #Roept de startscreen functie aan zodat het startscherm geopend wordt
