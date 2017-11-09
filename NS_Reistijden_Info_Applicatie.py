@@ -32,8 +32,8 @@ def StartScreen(): #Initieert het startscherm
     TitleFrame.grid(row=0) #Zorgt ervoor dat de welkomstboodschap op de juiste plek in de grid staat
 
     WelcomeText = 'Klik op ga door om actuele reisinformatie op te vragen, klik op stop om het programma af te sluiten'
-    WindowFrame = Frame(master=MainFrame, height=100, pady=10,bg='#fed339') #Maakt een frame voor de tekst in het witte veld
-    WhiteWindow = Label(master=WindowFrame, text=WelcomeText, font=('Frutiger Bold Regular',10,'bold'), bg='white') #Print de tekst in het witte veld in de GUI
+    WindowFrame = Frame(master=MainFrame, height=100,bg='#fed339',bd=5, highlightbackground='#000066', highlightthickness=2.5, highlightcolor='#000066', relief='ridge') #Maakt een frame voor de tekst in het witte veld
+    WhiteWindow = Label(master=WindowFrame, text=WelcomeText, font=('Frutiger Bold Regular',10,'bold'), bg='white' ) #Print de tekst in het witte veld in de GUI
     WhiteWindow.pack(ipadx= 25, ipady = 100) #Zorgt ervoor dat de tekst in het witte veld op de juiste plek staat op x en y-as
     WindowFrame.grid(row=1, padx=25) #Zorgt ervoor dat de tekst in het witte veld op de juist plek in de grid staat
 
@@ -66,9 +66,9 @@ def Choice():#Initieert het keuze scherm
     Title.pack()                        # Sluit de titel af en zet deze op de pagina
     TitleFrame.grid(row=0)              # Zet het Frame van de titel op regel 0 van de pagina
 
-    ExplanationFrame = Frame(master=MainFrame)
+    ExplanationFrame = Frame(master=MainFrame,bd=5, highlightbackground='#000066', highlightthickness=2.5, highlightcolor='#000066', relief='ridge')
     ExplanationText = 'Selecteer uit onderstaande lijst een station waarvan u informatie op wilt vragen, klik daarna op ga door' #De tekst die geprint wordt in het witteveld
-    WhiteWindow = Label(master=ExplanationFrame, text=ExplanationText, font=('Frutiger Bold Regular', 10, 'bold'),bg='white')  # Print de tekst in het witte veld in de GUI
+    WhiteWindow = Label(master=ExplanationFrame, text=ExplanationText, font=('Frutiger Bold Regular', 10, 'bold'),bg='white',)  # Print de tekst in het witte veld in de GUI
     WhiteWindow.pack(ipadx=25, ipady=100)  # Zorgt ervoor dat de tekst in het witte veld op de juiste plek staat op x en y-as
     ExplanationFrame.grid(row=1 ,pady=25)
 
@@ -119,7 +119,7 @@ def Information(station):
     Title.pack()    #Sluit de titel af en zet deze op de pagina
     TitleFrame.grid(row=0) #Zet het Frame van de titel op regel 0 van de pagina
 
-    InfoFrame = Frame(master=MainFrame, pady=10,bg='white', bd=5)  #Het frame waar de informatie in getoond wordt
+    InfoFrame = Frame(master=MainFrame, pady=10,bg='white', bd=5, highlightbackground='#000066', highlightthickness=2.5, highlightcolor='#000066', relief='ridge')  #Het frame waar de informatie in getoond wordt
     #Onderstaande Label statments zetten de variabelen in de goede rij en de goede kolom
     Label(master=InfoFrame, text='EindBestemming').grid(row=1, column=0, ipadx=5, ipady=10, )
     Label(master=InfoFrame, text='Vertrekspoor').grid(row=1, column=1, ipadx=5, ipady=10, )
@@ -178,7 +178,7 @@ def Information(station):
         Count +=1 #zorgt ervoor dat de count met 1 verhoogd wordt
 
     ExplanationText = "Klik op 'Ga door' om nogmaals een station te selecteren, klik op 'Ga terug' om terug te keren naar het welkomstscherm"
-    WhiteWindow = Label(master=InfoFrame, text=ExplanationText, font=('Frutiger Bold Regular', 10, 'bold'),bg='white')  # Print de tekst in het witte veld in de GUI
+    WhiteWindow = Label(master=InfoFrame, text=ExplanationText, font=('Frutiger Bold Regular', 10, 'bold'),bg='white' )  # Print de tekst in het witte veld in de GUI
     WhiteWindow.grid(row=Row, columnspan=9, ipadx=5,ipady=10)  # Zorgt ervoor dat de tekst in het witte veld op de juiste plek staat op x en y-as
     InfoFrame.grid(row=1,padx=25)#Dit geeft aan in welke rijhet frame word geset
 
