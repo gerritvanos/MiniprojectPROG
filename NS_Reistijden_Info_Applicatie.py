@@ -1,8 +1,8 @@
 #Onderstaande code wordt gebruikt om de benodigde modules te instaleren op de computer van de gebruiker
 #Wanneer de modules al geinstalleerd zijn zal die gezien worden en wordt de code daarna uitgevoord
 import pip
-pip.main(['install','requests'])    #Instaleerd de module 'requests'
-pip.main(['install','xmltodict'])   #Instaleerd de module 'xmltodict'
+pip.main(['install','requests'])    #Instaleert de module 'requests'
+pip.main(['install','xmltodict'])   #Instaleert de module 'xmltodict'
 
 #Onderstaande modules zijn nodig voor verschillende onderdelen van de code
 import requests         #Deze module wordt gebruikt voor het opvragen van de API
@@ -10,8 +10,8 @@ import xmltodict        #Deze module wordt gebtuikt voor het omzetten van de geg
 import sys              #Deze module wordt gebruikt om het programma af te kunnen sluiten
 from tkinter import *   #Deze module wordt gebruikt voor de GUI
 
-Stations = ['Hilversum', 'Kampen', 'Culemborg', 'Utrecht Lunetten', 'Driebergen-Zeist', 'Utrecht Centraal'] #Deze lijst is de lijst met stations die opgevraagd kunnen worden
-Stations.sort()
+Stations = ['Hilversum', 'Kampen', 'Culemborg', 'Utrecht Lunetten', 'Driebergen-Zeist', 'Utrecht Centraal'] #Deze lijst is de lijst met stations die opgevraagd kunnen worden (hier kan altijd meer aan worden toegevoegd)
+Stations.sort() #sorteert de Stationslist op alfabetische volgorde
 
 def StartScreen(): #Initieert het startscherm
     try:
@@ -159,7 +159,7 @@ def Information(station):
                 Column = 8
             elif Key == 'VertrekVertragingTekst':
                 continue
-            #Onderstaande if/elif statements zorgen ervoor dat bepaalde gegevens juist weergegeven worden, dit omdat sommige gegevens in een dubbele orderddict zitten
+            #Onderstaande if/elif statements zorgen ervoor dat bepaalde gegevens juist weergegeven worden, dit omdat sommige gegevens in een dubbele OrderedDict zitten
             if Column == 1:#Deze if is voor het correct weergeven van het Vertrekspoor
                 Label(master=InfoFrame, text='{}'.format(Train[Key]['#text'])).grid(row=Row, column=Column, ipadx=5, ipady=10)
             elif Column == 2:#Deze if is voor het correct weergeven van de vertrektijd
@@ -177,7 +177,7 @@ def Information(station):
         Row += 1 #Zorgt ervoor dat de rij met 1 verhoogd wordt
         Count +=1 #zorgt ervoor dat de count met 1 verhoogd wordt
 
-    ExplanationText = "Klik op 'Ga door' om nogmaals een station te selecteren, klik op 'Ga terug' om terug te keren naar het welkomstscherm"
+    ExplanationText = "Klik op 'Ga door' om nogmaals een station te selecteren, klik op 'Ga terug' om terug te keren naar het welkomstscherm" #Maakt een variabele van de de vraag om een station te selecteren, zodat de code overzichtelijk blijft
     WhiteWindow = Label(master=InfoFrame, text=ExplanationText, font=('Frutiger Bold Regular', 10, 'bold'),bg='white' )  # Print de tekst in het witte veld in de GUI
     WhiteWindow.grid(row=Row, columnspan=9, ipadx=5,ipady=10)  # Zorgt ervoor dat de tekst in het witte veld op de juiste plek staat op x en y-as
     InfoFrame.grid(row=1,padx=25)#Dit geeft aan in welke rijhet frame word geset
@@ -185,17 +185,17 @@ def Information(station):
     ButtonFrame = Frame(master=MainFrame, width=1280, height=100, pady=10,bg='#fed339') #Deze regel geeft aan hoe de layout van het frame van de button er uit ziet
     Back = Button(master=ButtonFrame, text='Ga terug', command=StartScreen, bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold')) #Dit geeft de opmaak van de button aan
     Back.grid(pady=10, padx=10,column=3,  row=Row)
-    Continue = Button(master=ButtonFrame, text='Ga door', command=Choice, bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold'))       #Dit geeft de opmaak van de button aan
+    Continue = Button(master=ButtonFrame, text='Ga door', command=Choice, bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold')) #Dit geeft de opmaak van de button aan
     Continue.grid(pady=10, padx=10,  column=4, row=Row)
     ButtonFrame.grid(row=2) #Deze zorgt ervoor dat de buttons in de 2 rij komen te staan
 
-    MainFrame.place(relx=0.5, rely=0.475, anchor=CENTER)
+    MainFrame.place(relx=0.5, rely=0.475, anchor=CENTER) #Positioneert het MainFrame op de goede plek
     InfoWindow.mainloop() #Het zorgt ervoor dat het window getoond wordt
 
 def CheckOption():#Haalt de informatie uit het menu en geeft deze aan de Information
-    Information(UserChoice.get())
+    Information(UserChoice.get()) #Geeft het geselecteerde station door aan de informatie functie
 
 def stoppen(): #Stopt de applicatie
-    sys.exit()
+    sys.exit() #Sluit het programma af
 
 StartScreen()  #Roept de startscreen functie aan zodat het startscherm geopend wordt
