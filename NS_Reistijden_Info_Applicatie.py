@@ -38,7 +38,7 @@ def StartScreen(): #Initieert het startscherm
     WindowFrame.grid(row=1, padx=25) #Zorgt ervoor dat de tekst in het witte veld op de juist plek in de grid staat
 
     ButtonFrame = Frame(master=MainFrame, width=1280, height=100, pady=10,bg='#fed339') #Maakt een frame voor de knoppen
-    Stop = Button(master=ButtonFrame, text='Stop', command=stoppen, bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold')) #Print de 'Stop' knop interactief in de GUI
+    Stop = Button(master=ButtonFrame, text='Stop', command=EndProgram, bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold')) #Print de 'Stop' knop interactief in de GUI
     Stop.grid(pady=10, padx=10,column=3,  row=0) #Zorgt ervoor dat de 'Stop' knop op de juiste plek in de grid staat
     Continue = Button(master=ButtonFrame, text='Ga door', command=Choice, bg='#000066', fg='white', font=('Frutiger Bold Regular', 16, 'bold')) #Print de 'Ga door' knop interactief in de GUI
     Continue.grid(pady=10, padx=10,  column=4, row=0) #Zorgt ervoor dat de 'Ga door' knop op de juiste plek in de grid staat
@@ -195,7 +195,7 @@ def Information(station):
 def CheckOption():#Haalt de informatie uit het menu en geeft deze aan de Information
     Information(UserChoice.get()) #Geeft het geselecteerde station door aan de informatie functie
 
-def stoppen(): #Stopt de applicatie
+def EndProgram(): #Stopt de applicatie
     sys.exit() #Sluit het programma af
 
 StartScreen()  #Roept de startscreen functie aan zodat het startscherm geopend wordt
