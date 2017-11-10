@@ -16,3 +16,5 @@ Na deze stappen zal het script een scherm openen en vervolgens de API van de NS.
 Voor het correct weergeven van het verlag(Verslag_V1N_team3.docx) is het nodig om het lettertype 'Frutiger Bold Regular' nodig.
 Dit is te downloaden via de volgende link: https://www.wfonts.com/font/frutiger
 Het bestand opent uiteraard wel maar word zal dan zelf een ander lettertype selecteren.
+
+De link naar de Video is te vinden in het verslag
